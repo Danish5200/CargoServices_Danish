@@ -1,0 +1,62 @@
+﻿@model CargoServices_Danish.Models.Booking
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="header">
+    <h1 class="page-header">
+        Booking
+    </h1>
+    <ol class="breadcrumb">
+        <li><a asp-action="Index">Booking</a></li>
+        <li><a asp-action="Edit">Edit</a></li>
+    </ol>
+</div>
+<div id="page-inner ">
+    <div class="row space80">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-action">
+                    Add Booking
+                </div>
+                <div class="card-content">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="CustomerID" class="control-label"></label>
+                            <select asp-for="CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FromAddress" class="control-label"></label>
+                            <input asp-for="FromAddress" class="form-control" />
+                            <span asp-validation-for="FromAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ToAddress" class="control-label"></label>
+                            <input asp-for="ToAddress" class="form-control" />
+                            <span asp-validation-for="ToAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Date" class="control-label"></label>
+                            <input asp-for="Date" class="form-control" />
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                    </form>
+                    <div class="clearBoth"></div>
+                    <div>
+                        <a asp-action="Index">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

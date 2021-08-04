@@ -1,0 +1,86 @@
+﻿@model IEnumerable<CargoServices_Danish.Models.Booking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="header">
+    <h1 class="page-header">
+        Booking
+    </h1>
+    <ol class="breadcrumb">
+        <li><a asp-action="Index">Booking</a></li>
+        <li><a asp-action="Create">Create New</a></li>
+    </ol>
+</div>
+<div id="page-inner">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tabledes">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FromAddress)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ToAddress)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Date)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Customer)
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FromAddress)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ToAddress)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Date)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Customer.Name)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                                        </td>
+                                    </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <footer>
+                <p>All right reserved <a href="#">Footer</a></p>
+            </footer>
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+
